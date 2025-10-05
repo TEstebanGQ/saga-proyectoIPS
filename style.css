@@ -1,0 +1,146 @@
+/* ============================
+   ESTILOS GENERALES
+============================ */
+body {
+  font-family: 'Georgia', serif;
+  background-color: #121212;
+  color: #f5f5f5;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0 12%;
+}
+
+/* Encabezados principales */
+h1 {
+  text-align: center;
+  color: #f8b400;
+  margin-top: 40px;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+h2 {
+  text-align: center;
+  color: #f1c40f;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+h3 {
+  color: #ffdd59;
+  margin-top: 25px;
+  font-size: 1.4rem;
+  border-left: 4px solid #ffdd59;
+  padding-left: 10px;
+}
+
+/* ============================
+   IMAGEN PRINCIPAL
+============================ */
+img {
+  display: block;
+  margin: 30px auto;
+  max-width: 80%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 221, 89, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(255, 221, 89, 0.5);
+}
+
+/* ============================
+   DETALLES Y SINOPSIS
+============================ */
+details {
+  background-color: #1e1e1e;
+  margin: 30px 0;
+  padding: 20px 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+details:hover {
+  box-shadow: 0 0 25px rgba(255, 221, 89, 0.2);
+}
+
+summary {
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #ffdd59;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+summary:hover {
+  color: #ffeaa7;
+}
+
+/* ============================
+   TEXTO Y PÁRRAFOS
+============================ */
+p {
+  text-align: justify;
+  color: #e0e0e0;
+  margin-bottom: 18px;
+  font-size: 1.05rem;
+}
+
+p::first-letter {
+  font-size: 1.3rem;
+  color: #f8b400;
+  font-weight: bold;
+}
+
+/* ============================
+   ESTILO PARA BR
+============================ */
+br {
+  margin-bottom: 10px;
+}
+
+/* ============================
+   ANIMACIONES Y EFECTOS
+============================ */
+details[open] summary::before {
+  content: "▼ ";
+  color: #ffdd59;
+}
+details summary::before {
+  content: "► ";
+  color: #ffdd59;
+}
+
+details[open] {
+  background-color: #242424;
+  transform: scale(1.01);
+}
+
+/* ============================
+   RESPONSIVE DESIGN
+============================ */
+@media (max-width: 768px) {
+  body {
+    padding: 0 6%;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  img {
+    max-width: 95%;
+  }
+}
