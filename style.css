@@ -30,11 +30,19 @@ body {
   align-items: center; /* Centra verticalmente */
 }
 
+/* Contenedor intermedio del carrusel */
+.carrusel {
+  width: 100%; /* Ancho completo */
+  height: 100%; /* Alto completo */
+  overflow: hidden; /* Oculta desbordamientos */
+}
+
 /* Track que contiene las tarjetas - se mueve horizontalmente */
-.carrusel-track {
+.track {
   display: flex; /* Elementos en fila */
   animation: deslizarHorizontal 24s steps(8) infinite; /* 8 pasos (4 libros x 2) cada 3 seg = 24s */
   width: 800%; /* 8 tarjetas x 100% */
+  height: 100%; /* Alto completo */
 }
 
 /* Animación por pasos - cada 3 segundos cambia de recuadro */
@@ -57,41 +65,37 @@ body {
   min-width: 100vw; /* Cada tarjeta ocupa toda la pantalla */
   height: 100vh; /* Alto completo */
   display: flex; /* Para centrar contenido */
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
+  flex-direction: column; /* Columna para imagen + info */
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
   background: #000000; /* Fondo negro */
   padding: 40px; /* Espaciado general */
 }
 
-/* Contenedor del marco dorado */
-.libro-card > div {
-  background: linear-gradient(145deg, #1a1a1a, #0a0a0a); /* Fondo del marco */
-  border: 12px solid #d4af37; /* Marco dorado grueso */
-  border-radius: 20px; /* Esquinas redondeadas */
-  padding: 20px; /* Espacio interno del marco */
-  box-shadow: 
-    0 0 30px rgba(212,175,55,0.5), /* Brillo dorado exterior */
-    inset 0 0 20px rgba(0,0,0,0.8); /* Sombra interna */
-  max-width: 500px; /* Ancho máximo del marco */
-  width: 90%; /* Ancho responsivo */
-}
-
 /* Imágenes dentro de las tarjetas */
 .libro-card img {
-  width: 100%; /* Ancho completo del contenedor */
+  max-width: 250px; /* Ancho máximo */
+  width: 90%; /* Ancho responsivo */
   height: auto; /* Altura automática */
   display: block; /* Elimina espacio inferior */
-  border-radius: 10px; /* Esquinas redondeadas */
-  box-shadow: 0 10px 40px rgba(0,0,0,0.9); /* Sombra profunda */
+  border-radius: 15px; /* Esquinas redondeadas */
+  border: 12px solid #d4af37; /* Marco dorado grueso */
+  box-shadow: 
+    0 0 40px rgba(212,175,55,0.6), /* Brillo dorado exterior */
+    0 20px 60px rgba(0,0,0,0.9); /* Sombra profunda */
+  padding: 15px; /* Espacio interno del marco */
+  background: linear-gradient(145deg, #1a1a1a, #0a0a0a); /* Fondo del marco */
 }
 
 /* Información del libro */
 .libro-info {
-  margin-top: 20px; /* Espacio superior */
+  margin-top: 30px; /* Espacio superior */
   text-align: center; /* Texto centrado */
-  padding: 15px; /* Espaciado interno */
-  background: rgba(212,175,55,0.1); /* Fondo dorado translúcido */
-  border-radius: 10px; /* Esquinas redondeadas */
+  padding: 20px 40px; /* Espaciado interno */
+  background: rgba(212,175,55,0.15); /* Fondo dorado translúcido */
+  border-radius: 12px; /* Esquinas redondeadas */
+  border: 2px solid #d4af37; /* Borde dorado */
+  max-width: 500px; /* Ancho máximo */
 }
 
 .libro-info h3 {
@@ -138,22 +142,6 @@ h3 {
   font-size: 1.5rem; /* Tamaño mediano */
   border-left: 5px solid #ffdd59; /* Línea izquierda */
   padding-left: 15px; /* Espacio interno */
-}
-
-/* ==========================================
-   IMAGEN PRINCIPAL
-========================================== */
-.main-image {
-  display: block; /* Bloque para centrar */
-  margin: 40px auto; /* Centrado */
-  max-width: 70%; /* Ancho máximo */
-  border-radius: 15px; /* Esquinas redondeadas */
-  box-shadow: 0 10px 40px rgba(255,221,89,0.3); /* Sombra dorada */
-  transition: transform 0.4s; /* Transición suave */
-}
-
-.main-image:hover {
-  transform: scale(1.05); /* Agranda al pasar mouse */
 }
 
 /* ==========================================
@@ -221,10 +209,15 @@ p::first-letter {
    RESPONSIVE - MÓVILES
 ========================================== */
 @media (max-width: 768px) {
-  .libro-card > div {
-    max-width: 350px; /* Marco más pequeño */
-    padding: 15px; /* Menos padding */
+  .libro-card img {
+    max-width: 300px; /* Imagen más pequeña */
     border-width: 8px; /* Marco más delgado */
+    padding: 10px; /* Menos padding */
+  }
+  
+  .libro-info {
+    max-width: 90%; /* Ancho adaptado */
+    padding: 15px 20px; /* Menos padding */
   }
   
   .libro-info h3 {
@@ -237,9 +230,5 @@ p::first-letter {
   
   .content-wrapper {
     padding: 0 15px; /* Menos espaciado */
-  }
-  
-  .main-image {
-    max-width: 90%; /* Más ancho en móviles */
   }
 }
